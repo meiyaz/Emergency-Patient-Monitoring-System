@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EPMS COVID-19</title>
+	<link rel="icon" href="./COVID-19.png" type="image/icon type">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body
+  		{
+  			user-select: none;
+  		}
+		.avtr
+      	{
+        	width: 75%;
+        	height: 75%;
+        	margin-left: 25px;
+        	border-radius: 50%;
+      	}
+      	i
+      	{
+      		width: 60px;
+      		height: 25px;
+      	}
+		nav
+{-webkit-box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77); 
+box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77);
+}
+.foot{
+background-color:#055598;
+}
+nav b{
+font-family: 'Do Hyeon', sans-serif;
+font-size:25px;
+}
+	</style>
+</head>
+<body>
+	<header>
+	<nav>
+		<img src="navpic.jpg" height="75" width="150">
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<b style="color:#216593">COVID 19</b>&nbsp&nbsp<b style="color:#C42D10">EMERGENCY PATIENT MONITORING SYSTEM</b>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<img src="3.png" height="75" width="75">
+	</nav>
+</header>
+<br>
+<br>
+	<div class="container-fluid">
+		<div class="row border border-light">
+			<div class="col-sm-2">
+				<img src="avatar.png" alt="Patient" class="avtr">
+			</div>
+			<div class="col-sm-4">
+				<div class="font-weight-bold" id="name">Meiyazhagan K</div>
+				<div class="text-secondary" id="speciality">Neuro Surgeon</div>
+				<div class="text-secondary" id="hospital">KSR Hospitals</div>
+				<div class="text-secondary" id="location">Tiruchengode</div>
+			</div>
+			<div class="col-sm-5">
+				<div>
+					<i class="fa fa-phone btn btn-success rounded" align="center"></i>
+					<label class="font-weight-bold">Virtual Assistance</label>
+				</div>
+				<div>
+					<i class="fa fa-phone btn btn-success rounded" align="center"></i>
+					<label class="font-weight-bold">Whatsapp Call</label>
+				</div>
+				<div>
+					<i class="fa fa-phone btn btn-success rounded" align="center"></i>
+					<label class="font-weight-bold">Skype Call</label>
+				</div>
+				<div>
+					<i class="fa fa-phone btn btn-success rounded" align="center"></i>
+					<label class="font-weight-bold">Zoom Call</label>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+
+			var arrs=['Fever','Cough','Tiredness','Breathing Difficulties','Nasal Congestion','Heart Atack','Stroke','Allergy','Hypersensitivity','Cold','Hives','Sinusites','Bone Problems','Joint Problems','Asthma','Cancer','Back Pain','ENT Problems','Pneumonia','Tonsilities','Diabetes','Appendicitis','Ulcer','Constipation','Diarrhoea','Angina','Hepatitis','Liver Cirrhosis','Blood Pressure','HIV/AIDS','Dengue','Malaria','Meningitie','Fits/Epilepsy','Nervous Problems','Thyroid','Kidney Problems','Menopause','Dialysis','Fracture'];
+
+			var arrs1=['name','zone','Fever','Cough','Tiredness','Breathing_Difficulties','Nasal_Congestion','Heart_Attack','Stroke','Allergy','Hypersensitivity','Cold','Hives','Sinusites','Bone_Problems','Joint_Problems','Asthma','Cancer','Back_Pain','ENT_Problems','Pneumonia','Tonsilities','Diabetes','Appendicitis','Ulcer','Constipation','Diarrhoea','Angina','Hepatitis','Liver_Cirrhosis','Blood_Pressure','AIDS','Dengue','Malaria','Meningitie','Fits','Nervous_Problems','Thyroid','Kidney_Problems','Menopause','Dialysis','Fracture']
+			
+			var hr = new XMLHttpRequest();
+
+			hr.open("GET", "my-patients.php", true);
+
+			hr.setRequestHeader("Content-type", "application/json");
+
+			// hr.responseType= "JSON";
+
+			var data = 0;
+
+			hr.onload = function()
+			{
+				if((hr.readyState == 4) && (hr.status == 200))
+				{
+					var names = [];
+					var place = [];
+					var symptoms = [];
+
+					data = JSON.parse(hr.response);
+
+					for(var i=0 ; i<data.length ; i++)
+					{
+						var temp = [];
+
+						names.push(data[i][arrs1[0]]);
+						place.push(data[i][arrs1[1]]);
+
+						for(var j=2 ; j<arrs1.length ; j++)
+						{
+							// console.log(arrs1[j])
+							if(data[i][arrs1[j]] == 1)
+							{
+								temp.push(arrs[j-2])
+							}
+						}
+						console.log(temp)
+						if(temp.length != 0)
+						{
+							symptoms.push(temp)
+						}
+						else
+						{
+							temp.push("none")
+							symptoms.push(temp)
+						}
+					}
+				}
+			}
+
+			hr.send();
+
+		</script>
+
+		<div class="row">
+			<div class="col">
+				<table class="table table-bordered">
+    				<thead>
+      					<tr>
+        					<th>NAME</th><th>PLACE</th><th>SYMPTOMS</th><th>DBT</th><th>ACTION</th>
+        				</tr>
+    				</thead>
+    				<tbody>
+      				<tr>
+        				<td>Patient1</td><td>Tiruchengode</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+					<tr>
+        				<td>Patient2</td><td>Erode</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+				    <tr>
+        				<td>Patient3</td><td>Namakkal</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+					<tr>
+        				<td>Patient4</td><td>Salem</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+					<tr>
+        				<td>Patient5</td><td>Tiruchengode</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+					<tr>
+        				<td>Patient6</td><td>Tiruchengode</td><td>Fever</td><td>dbt</td><td><button class="btn btn-primary">View</button></td>
+      				</tr>
+    				</tbody>
+  				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<footer>
+<div class="foot" style="color:#E5EBF0">
+<marquee>
+  Designed and developed by,&nbsp&nbsp&nbsp
+  Harish L  &nbsp |   &nbsp
+  Deepa Jothi S&nbsp   | &nbsp  
+  Barath V   &nbsp | &nbsp   
+  Suvitha A &nbsp  |  &nbsp 
+  Thirumal raj M &nbsp | &nbsp   
+  Meiyazhagan K  &nbsp |  &nbsp 
+  Vasim Khan &nbsp  |  &nbsp 
+  Harsha Dhanish  &nbsp |   &nbsp
+  Gokul B
+</div>
+</marquee>
+</footer>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EPMS COVID-19</title>
+	<link rel="icon" href="./COVID-19.png" type="image/icon type">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+  		.not-selected
+  		{
+  			background-color: #6d769d;
+  		}
+  		.not-selected:hover
+  		{
+  			background-color: #3d4992;
+  		}
+  		.selected
+  		{
+  			background-color: #e68b1e;
+  		}
+  		#result
+  		{
+  			text-align: center;
+  			left: 150px;
+  		}
+  		.ard
+  		{
+  			padding: 5px;
+  			border-color: black;
+  			border-radius: 10px;
+  			background-color: lightgrey;
+  		}
+  		.card
+  		{  background-color: #A8ADB1;
+  			border-radius: 8px;
+			margin-right:40px;
+			margin-bottom:30px;
+  			border-color: #C4CBD1;
+			font-family: 'Libre Baskerville', serif;
+			text-color:white;
+		 	  padding-top: 20px;
+		 	  text-align: center; 
+		 	  height: 60px;
+  		}
+  		.card:hover
+  		{
+  			
+  			transition: width 2s;
+			background-color:#E74242;
+  		}
+  		body
+  		{
+  			user-select: none;
+  		}
+      .avtr
+      {
+        width: 35%;
+        margin-left: 25%;
+        border-radius: 50%;
+      }
+	  nav
+{-webkit-box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77); 
+box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77);
+margin-bottom:30px;
+}
+.foot{
+background-color:#055598;
+}
+nav b{
+font-family: 'Do Hyeon', sans-serif;
+font-size:25px;
+}
+img#a{
+margin-right:320px;
+}
+img#b{
+margin-left:280px;
+}
+	</style>
+</head>
+<body onload='showSymptoms()'>
+	<!--Header-->
+	<div>
+		<nav>
+		<img src="navpic.jpg" height="75" width="150" id="a">
+		<b style="color:#216593; margin-left:20px;">COVID 19</b><b style="color:#C42D10">EMERGENCY PATIENT MONITORING SYSTEM</b>
+		<img src="3.png" height="75" width="75" id="b">
+	</nav>
+	</div>
+	<!--Symptoms-->
+	<div class="container-fluid">
+    <!--<div class="container-fluid">-->
+      <div class="container-fluid w-25 float-left">
+        <div class="form-group">
+          <img src="avatar.png" alt="Patient" class="avtr">
+        </div>
+        <div class="form-group">
+          <!--<label class="new">Name:</label>-->
+          <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form-group">
+            <!-- <label class="new">Gender:</label>-->
+            <input type="radio" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
+        <div class="form-group">
+          <!-- <label class="new">Age:</label>-->
+          <input type="number" class="form-control" id="age" placeholder="Enter Your Age" required>
+        </div>
+        <div class="form-group">
+          <!--<label class="new">Address:</label>-->
+          <input type="text" class="form-control" id="address" placeholder="Enter Your Current Address" required>
+          </div>
+        <div class="form-group">
+          <!--<label class="new">Zone:</label>-->
+          <input type="text" class="form-control" id="zone" placeholder="Enter Your Zone" required>
+        </div>
+        <div class="form-group">
+          <!--<label class="new">Phone Number:</label>-->
+          <input type="number" class="form-control" id="contact" placeholder="Enter Your Contact Number" required>
+        </div>
+        <div class="form-group">
+          <!--<label class="new">Email:</label>-->
+          <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+        </div>
+        <div class="form-group">
+          <!--<label class="new">Blood Group:</label>-->
+          <select class="form-control" id="bg" required>
+            <option>Blood Group</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="container-fluid w-75 float-right">
+          <div class="rounded row" id='result'></div> 
+        <div class="row card-columns" id='symp'> </div>
+      </div>
+   <!-- </div> -->		
+  </div>
+  <div class="form-group" align="center">
+        <button class="btn btn-success" onclick="Submit()">Submit</button>
+    </div>
+<script type="text/javascript">
+	var arrs=['Fever','Cough','Tiredness','Breathing Difficulties','Nasal Congestion','Heart Atack','Stroke','Allergy','Hypersensitivity','Cold','Hives','Sinusites','Bone Problems','Joint Problems','Asthma','Cancer','Back Pain','ENT Problems','Pneumonia','Tonsilities','Diabetes','Appendicitis','Ulcer','Constipation','Diarrhoea','Angina','Hepatitis','Liver Cirrhosis','Blood Pressure','HIV/AIDS','Dengue','Malaria','Meningitie','Fits/Epilepsy','Nervous Problems','Thyroid','Kidney Problems','Menopause','Dialysis','Fracture']
+	function showSymptoms()
+	{
+		var tmps='';
+		for(var i=0;i<arrs.length;i++)
+		{
+			tmps+='<div class="card not-selected" style="width:16%; height:"id="card'+i+'"><h6 class="card-title">'+arrs[i]+'</h6></div>'
+		}
+		for(var i=0;i<arrs.length;i++)
+		{
+			document.getElementById('symp').innerHTML=tmps
+		}
+		addEL()
+	}
+	function addEL()
+	{
+		for(var i=0;i<arrs.length;i++)
+		{
+			document.getElementById('card'+i).addEventListener('click',selected)
+		}
+	}
+	function selected() 
+	{
+    	this.classList.toggle('not-selected')
+    	this.classList.toggle('selected')
+	}
+	var arrd=[]
+	$(document).ready(function(){
+    	$('.card').click(function(){
+    	    for(var i=0;i<arrs.length;i++)
+    		{
+    			if($('#card'+i).hasClass('selected'))
+    			{
+    				var x=arrs[i]
+    				if(arrd.indexOf(x)==-1)
+    				{
+    					arrd.push(x)
+    				}
+    			}
+    			else
+    			{
+					var rem=arrs[i]
+					arrd=$.grep(arrd, function(value) { return value!=rem;});
+    			}
+    		}
+    		var ar=''
+    		for(var j=0;j<arrd.length;j++)
+    		{
+    			ar+='<div class="ard">'+arrd[j]+'</div>'
+    		}
+    	    document.getElementById('result').innerHTML=ar
+    	})
+	})
+  
+  function Submit()
+  {
+    var arrs1=['Fever','Cough','Tiredness','Breathing_Difficulties','Nasal_Congestion','Heart_Attack','Stroke','Allergy','Hypersensitivity','Cold','Hives','Sinusites','Bone_Problems','Joint_Problems','Asthma','Cancer','Back_Pain','ENT_Problems','Pneumonia','Tonsilities','Diabetes','Appendicitis','Ulcer','Constipation','Diarrhoea','Angina','Hepatitis','Liver_Cirrhosis','Blood_Pressure','AIDS','Dengue','Malaria','Meningitie','Fits','Nervous_Problems','Thyroid','Kidney_Problems','Menopause','Dialysis','Fracture']
+
+
+    console.log(document.getElementById('name').value)
+    var name = "&name=" + "'" + document.getElementById('name').value + "'"
+
+    console.log(document.getElementById('age').value)
+    var age = "&age="+document.getElementById('age').value
+
+    var gen = document.getElementsByName('gender')
+    var gender = ''
+    for(var i=0;i<gen.length;i++) 
+    { 
+      if(gen[i].checked)
+      {
+        gender = "&gender=" + "'" + gen[i].value + "'"
+        console.log(gen[i].value)
+      }
+    }
+
+    console.log(document.getElementById('address').value)
+    var address = "&address=" + "'" + document.getElementById('address').value + "'"
+
+    console.log(document.getElementById('zone').value)
+    var zone = "&zone=" + "'" + document.getElementById('zone').value + "'"
+
+    console.log(document.getElementById('contact').value)
+    var number = "&number=" + "'" + document.getElementById('contact').value + "'"
+
+    console.log(document.getElementById('email').value)
+    var email = "&email=" + "'" + document.getElementById('email').value + "'"
+
+    console.log(document.getElementById('bg').value)
+    var bg = "&bg=" + "'" + document.getElementById('bg').value + "'"
+
+    // Its a string of all the selected symptoms
+    var symp = document.getElementById('result').innerText
+
+    console.log(symp)
+    
+    // Convert the string into array of symptoms
+    var symptoms = []
+    var start = 0
+
+    for(i=0; i<symp.length;i++)
+    {
+      if(symp[i]==',')
+      {
+        symptoms.push(symp.substring(i, start))
+        start = i+2
+      }
+    }
+
+    // document.write(symptoms)
+
+    var hr = new XMLHttpRequest();
+
+    var url = "symptoms.php";
+
+    var accepted = ''
+
+    for(i=0;i<arrs1.length;i++)
+    { 
+      if(symptoms.indexOf(arrs[i]) != -1)
+      {
+        accepted += ("&" + arrs1[i] + "=1")
+      }
+      else
+      {
+        accepted += ("&" + arrs1[i] + "=0")
+      }
+    }
+
+    // Prepare the variable that needs to be sent to the backend in key-value pair format
+    var vars = name + age + gender + address + zone + number + email + bg + accepted
+
+    hr.open("POST", url, true);
+    
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // Send the data to PHP now... and wait for response to update the status div
+    // Actually execute the request
+    hr.send(vars); 
+
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function()
+    {
+      if(hr.readyState == 4 && hr.status == 200)
+      {
+        console.log(hr.responseText)
+        console.log(hr.readyState)
+        console.log(hr.status)
+      }
+    }
+  }
+</script> 
+</body>
+<footer>
+<div class="foot" style="color:#E5EBF0" "background-color:#16638F">
+<marquee>
+  Designed and developed by,&nbsp&nbsp&nbsp
+  Harish L  &nbsp |   &nbsp
+  Deepa Jothi S&nbsp   | &nbsp  
+  Barath V   &nbsp | &nbsp   
+  Suvitha A &nbsp  |  &nbsp 
+  Thirumalraj M &nbsp | &nbsp   
+  Meiyazhagan K  &nbsp |  &nbsp 
+  Vasim Khan A &nbsp  |  &nbsp 
+  Harsha Dhanish S R &nbsp |   &nbsp
+  Gokul B   
+</div>
+</marquee> 
+</footer>
+</html>

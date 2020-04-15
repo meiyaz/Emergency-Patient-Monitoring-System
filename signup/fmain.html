@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<title> EPMS COVID 19</title>
+  <link rel="icon" href="./COVID-19.png" type="image/icon type">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+<script type="text/javascript">
+$(document).ready(function(){
+	  $('.tab a').on('click', function (e) {
+	  e.preventDefault();
+	  
+	  $(this).parent().addClass('active');
+	  $(this).parent().siblings().removeClass('active');
+	  
+	  var href = $(this).attr('href');
+	  $('.forms > form').hide();
+	  $(href).fadeIn(500);
+	});
+});
+</script>
+<style>
+#cont{
+padding:30px;
+}
+* {
+	box-sizing: border-box;
+}
+.forms {
+	background: #fff;
+	box-shadow: 0 0 3px #000;
+	margin: 30px auto;
+	max-width: 350px;
+	overflow: hidden;
+	position: relative;
+	border-radius:15px;
+}
+.form-control{
+height:50px;
+margin-top:15px;
+}
+.forms form {
+ padding: 30px;
+ }
+#signup {
+ display: none; 
+ }
+.forms .tab-group {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.forms .tab-group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.forms .tab-group li a {
+	display: block;
+	text-decoration: none;
+	padding: 15px;
+	background: #e5e6e7;
+	color: #888;
+	font-size: 20px;
+	float: left;
+	width: 50%;
+	text-align: center;
+	border-top: 3px solid transparent;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+.forms .tab-group .active a {
+	background: #fff;
+	color: #444;
+	border-top: 3px solid #2980B9;
+}
+.forms input {
+	font-size: 16px;
+	display: block;
+	width: 100%;
+	padding: 10px 20px;
+	border: 1px solid #ddd;
+	color: #666;
+	border-radius: 0;
+	margin-bottom: 10px;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.forms input:focus {
+	outline: 0;
+	border-color: #2e5ed7;
+}
+.forms label {
+		font-size: 16px;
+	font-weight: normal;
+	color: #666;
+	margin-bottom: 5px;
+	display: block;
+	text-align:left;
+}
+.forms .button {
+	border: 0;
+	outline: none;
+	border-radius:15px;
+	padding: 10px 0;
+	font-size: 18px;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: #2980B9;
+	color: #ffffff;
+	cursor: pointer;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.forms .button:hover, .button:focus { background: #2980B30; }
+.text-p { text-align: right; }
+.text-p a { color: #1383ea; }
+.iblock_text{
+border-radius:10px;
+margin-top:2px;
+background-color:#2980B9;
+padding:2px;
+}
+nav
+{-webkit-box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77); 
+box-shadow: -1px 6px 5px -3px rgba(0,0,0,0.77);
+}
+nav b{
+font-family: 'Do Hyeon', sans-serif;
+font-size:25px;
+}
+.foot{
+background-color:#216593;
+}
+.nam{
+  font-size: 30px;
+  font-family: 'Oswald', sans-serif;
+  text-align:center;
+}
+img#a{
+margin-right:300px;
+}
+img#b{
+margin-left:280px;
+}
+img#z{
+   width: 10%;
+   margin-left:220px;
+   }
+iframe{
+   padding:0px;
+   margin-right:0px;
+   margin-bottom:50px;
+   border-radius:10px;
+   }
+.scroll{
+  -webkit-box-shadow: -1px 0px 5px -6px #000000; 
+box-shadow: -1px 0px 5px -6px #000000;
+   border-radius:10px;
+   padding:20px;
+   margin-right:20px;
+   width:500px;
+   height:500px;
+   float:left;
+   }
+.scroll h1{
+  text-color:blue;
+  text-align:center;
+  font-size:20px;
+  font-family: 'Oswald', sans-serif;
+  }
+.system{
+  margin-top:100px;
+  margin-right:20px;
+  }
+.case{
+  float:left;
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<header>
+	<nav>
+		<img src="navpic.jpg" height="75" width="150" id="a">
+		<b style="color:#216593; margin-left:20px;">COVID 19</b><b style="color:#C42D10">EMERGENCY PATIENT MONITORING SYSTEM</b>
+		<img src="3.png" height="75" width="75" id="b">
+	</nav>
+	<nav>
+		<div id="shiva"><span class="count">400</span>
+		<div id="shiva"><span class="count">400</span>
+		<div id="shiva"><span class="count">400</span>
+		<div id="shiva"><span class="count">400</span>
+	</nav>
+</header>
+<body>
+<div class="w3-row w3-container" id="cont">
+	  <div class="w3-col s9 ">
+	  <!--RIGHT SIDE-->
+			  <div class="scroll">
+			            <h1> IMPORTANT UPDATES</h1>
+						<marquee direction = "up">1.Regularly clean work surfaces.<br>
+						2.	Regularly wash the hands with soap and water or use sanitizer. .<br>
+						3.	cleaning hands on a regular basis.<br>
+						4.	keeping at least 1 meter’s distance from people who are coughing or sneezing.<br>
+						5.	following COVID-19-specific travel advisories from local authorities.<br>
+						6.	Cough or sneeze into your elbow or use a tissue.<br>
+						7.	If you feel unwell, stay home and call your doctor or a local health professional. .<br>4.	keeping at least 1 meter’s distance from people who are coughing or sneezing.<br>
+						5.	following COVID-19-specific travel advisories from local authorities.<br>
+						6.	Cough or sneeze into your elbow or use a tissue.<br>
+						7.	If you feel unwell, stay home and call your doctor or a local health professional. .<br>
+						</marquee>
+			  </div>
+			  <div class="system">
+					  <div class="img">
+							<img src="virus.png" id="z">
+					  </div>
+				  <h2 style="color:#216593"; class="nam">COVID 19</h2>
+				  <h4 style="color:#C42D10"; class="nam">Emergency Patient Monitoring System</h4>
+			  </div>
+	  </div>
+  <div class="w3-col s3 w3-center">
+    <div class="forms">
+			<ul class="tab-group">
+				<li class="tab active"><a href="#login">Log In</a></li>
+				<li class="tab"><a href="#signup">Sign Up</a></li>
+			</ul>
+			<form onsubmit="Login_Submit()" id="login">
+				  <div class="input-field">
+					<label for="email">Email</label>
+					<input type="email" name="email" required="email" />
+					<label for="password">Password</label> 
+					<input type="password" name="password" required/>
+					<input type="submit" value="Login" class="button"/>
+				  </div>
+			  </form>
+			  <form onsubmit="Signup_Submit()" id="signup">
+				  <div class="input-field">
+					<label for="email">Email</label> 
+					<input type="email" name="email" required="email"/>
+					<label for="password">Password</label> 
+					<input type="password" name="password" required/>
+					<label for="password">Confirm Password</label> 
+					<input type="password" name="password" required/>
+					<div class="form-group">
+          <select class="form-control"  required>
+            <option>Doctor</option>
+            <option>Patient</option>
+          </select>
+        </div>
+		<br>
+                  </div>
+					<input type="submit" value="Sign up" class="button" href="PatientC" >
+				  </div>
+			  </form>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript">
+	
+
+function Login_Submit()
+{
+
+	var form = new FormData(document.getElementById("login"));
+
+	var object = {};
+
+	form.forEach((value, key) => {object[key] = value});
+
+	var vars = "email=" + String(object["email"]) + "&password=" +String(object["password"]);
+
+	console.log(vars);
+
+	var hr = new XMLHttpRequest();
+
+	var url = "login-command.php";
+	
+	hr.open("POST", url, true);
+
+	hr.responseType = "text";
+
+	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	hr.send(vars);
+
+	hr.onreadystatechange = function()
+	{
+		if(hr.readyState == 4 && hr.status == 200)
+		{
+			console.log(hr.response)
+			console.log(hr.readyState)
+			console.log(hr.status)
+			// document.getElementById("p2").innerHTML = hr.responseText;
+			if(hr.response == 1)
+			{
+				// alert("Successfully Logged in!!!");
+				console.log("Successfully Logged in!!!")
+
+				// location.href = "C:/wamp64/www/Projects/final/patient.html";
+			}
+			else if(hr.response == 2)
+			{
+				// alert("Please Enter The Correct Password....");
+				console.log("Please Enter The Correct Password....")
+			}
+			else if(hr.response == 3)
+			{
+				// alert("No such account is present please sign up");
+				console.log("No such account is present please sign up")
+			}
+			else
+			{
+
+			}
+		}
+	}
+}
+
+
+function Signup_Submit()
+{
+
+	var form = new FormData(document.getElementById("signup"));
+
+	var object = {};
+
+	form.forEach((value, key) => {object[key] = value});
+	
+	var json = JSON.stringify(object);
+
+	// console.log(json)
+
+	var vars = "email=" + form.get("email") + "&password=" + form.get("password");
+
+	console.log(vars)
+
+	var hr = new XMLHttpRequest();
+
+	var url = "signup-command.php";
+
+	hr.open("POST", url, true);
+
+	hr.responseType = "text";
+
+	// application/x-www-form-urlencoded
+
+	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	hr.send(vars);
+
+	hr.onreadystatechange = function()
+	{
+		if(hr.readyState == 4 && hr.status == 200)
+		{
+			console.log(hr.responseText)
+			console.log(hr.readyState)
+			console.log(hr.status)
+
+			if(hr.responseText == 1)
+			{
+				// location.href = "C:/wamp64/www/Projects/final/patient.html";
+			}
+			else
+			{
+				// alert("Already an email account is present please log in...");
+				console.log("Already an email account is present please log in...")
+			}
+		}
+	}
+}
+
+</script>
+
+<footer>
+<div class="foot" style="color:#E5EBF0" "background-color:#16638F">
+<marquee>
+  Designed and developed by,&nbsp&nbsp&nbsp
+  Harish L  &nbsp |   &nbsp
+  Deepa jothi S&nbsp   | &nbsp  
+  Barath V   &nbsp | &nbsp   
+  Suvitha A &nbsp  |  &nbsp 
+  Thirumalraj M &nbsp | &nbsp   
+  Meiyazhagan K  &nbsp |  &nbsp 
+  Vasim khan A &nbsp  |  &nbsp 
+  Harsha danish S R &nbsp |   &nbsp
+  Gokul B   
+</div>
+</marquee> 
+</footer>
+</html>
